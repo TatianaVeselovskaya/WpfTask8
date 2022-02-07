@@ -15,16 +15,26 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 
-namespace WpfTask8
+namespace WpfTask9
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
+
         {
             InitializeComponent();
+        }
+
+        private void themes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Uri theme = new Uri(themes.SelectedIndex == 0 ? "Light.xaml" : "Dark.xaml", UriKind.Relative);
+            ResourceDictionary themeDict = Application.LoadComponent(theme) as ResourceDictionary;
+            Application.Current.Resources.MergedDictionaries.Add(themeDict);
         }
 
         private void ExitExecuted(object sender, ExecutedRoutedEventArgs e)
@@ -53,7 +63,7 @@ namespace WpfTask8
             }
         }
       
-        private void ComboBox(object sender, SelectionChangedEventArgs e)
+        private void ComboBox_Font(object sender, SelectionChangedEventArgs e)
         {
             if (textBox != null)
             {
@@ -63,7 +73,7 @@ namespace WpfTask8
             }
         }
 
-        private void ComboBox1(object sender, SelectionChangedEventArgs e)
+        private void ComboBox_Font_Size(object sender, SelectionChangedEventArgs e)
         {
             if (textBox != null)
             {
@@ -73,7 +83,7 @@ namespace WpfTask8
             }
         }
 
-            private void ButtonB(object sender, RoutedEventArgs e)
+        private void ButtonB(object sender, RoutedEventArgs e)
         {
             if (textBox.FontWeight == FontWeights.Normal)
             {
@@ -84,7 +94,6 @@ namespace WpfTask8
                 textBox.FontWeight = FontWeights.Normal;
             }
         }
-
         private void ButtonI(object sender, RoutedEventArgs e)
         {
             if (textBox.FontStyle == FontStyles.Normal)
@@ -121,6 +130,13 @@ namespace WpfTask8
             {
                 textBox.Foreground = Brushes.Red;
             }
+        }
+        private void Themes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Uri theme = new Uri(themes.SelectedIndex == 0 ? "Light.xaml" : "Dark.xaml", UriKind.Relative);
+            ResourceDictionary themeDict = Application.LoadComponent(theme) as ResourceDictionary; 
+            Application.Current.Resources.MergedDictionaries.Add(themeDict);
         }
 
     }

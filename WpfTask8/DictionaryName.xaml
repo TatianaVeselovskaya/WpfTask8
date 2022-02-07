@@ -21,6 +21,6 @@
         <sys:String>14</sys:String>
         <sys:String>16</sys:String>
         <sys:String>18</sys:String>
-        <sys:String>20</sys:String>
+        <sys:String>40</sys:String>
     </col:ArrayList>
 </ResourceDictionary>
