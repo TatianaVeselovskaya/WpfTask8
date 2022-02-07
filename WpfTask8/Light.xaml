@@ -28,4 +28,5 @@
         <Setter Property="Background" Value="{StaticResource bg}"/>
         <Setter Property="Foreground" Value="{StaticResource сFont}"/>
     </Style>
+    
 </ResourceDictionary>
